@@ -23,7 +23,7 @@ import java.util.*;
 /**
  * Created by w7397 on 2017/3/17.
  */
-@Controller
+//@Controller
 public class IndexController {
     private static final Logger logger= LoggerFactory.getLogger(LogAspect.class);
 
