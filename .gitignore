@@ -27,7 +27,7 @@ nbdist/
 mvnw
 mvnw.cmd
 pom.xml
-src/
-src/main/java/com/wyf/service/
+
+
 src/main/resources/static/
 src/main/resources/templates/header.vm
