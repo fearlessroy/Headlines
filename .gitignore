@@ -31,3 +31,4 @@ pom.xml
 
 #src/main/resources/static/
 src/main/resources/templates/header.vm
+upload/

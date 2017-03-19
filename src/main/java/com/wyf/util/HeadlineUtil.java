@@ -13,25 +13,39 @@ import java.util.Map;
  */
 public class HeadlineUtil {
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
+    public static String HEADLINE_DOMAIN = "http://127.0.0.1:8080/";
+    public static String IMAGE_DIR = "F:/Projects/Engineering/headline/upload/";
+    public static String[] IMAGE_FILE_EXT = new String[]{"png", "bmp", "jpg", "jpeg"};
+    public static String QINIU_DOMAIN_PREFIX = "http://oauiukpl6.bkt.clouddn.com/";
+    public static int ANONYMOUS_ID = 2001;
 
-    public static String getJSONString(int code){
-        JSONObject json=new JSONObject();
-        json.put("code",code);
+    public static boolean isFillAllowed(String filExt) {
+        for (String ext : IMAGE_FILE_EXT) {
+            if (ext.equals(filExt)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static String getJSONString(int code) {
+        JSONObject json = new JSONObject();
+        json.put("code", code);
         return json.toString();
     }
 
-    public static String getJSONString(int code,String msg){
-        JSONObject json=new JSONObject();
-        json.put("code",code);
-        json.put("msg",msg);
+    public static String getJSONString(int code, String msg) {
+        JSONObject json = new JSONObject();
+        json.put("code", code);
+        json.put("msg", msg);
         return json.toString();
     }
 
-    public static String getJSONString(int code, Map<String,Object> map){
-        JSONObject json=new JSONObject();
-        json.put("code",code);
-        for(Map.Entry<String,Object> entry:map.entrySet()){
-            json.put(entry.getKey(),entry.getValue());
+    public static String getJSONString(int code, Map<String, Object> map) {
+        JSONObject json = new JSONObject();
+        json.put("code", code);
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            json.put(entry.getKey(), entry.getValue());
         }
         return json.toString();
     }
