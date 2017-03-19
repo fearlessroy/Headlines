@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class SettingController {
     @RequestMapping("/setting")
     @ResponseBody
-    public String setting(){
+    public String setting() {
         return "Setting OK";
     }
 }

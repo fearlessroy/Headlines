@@ -1,7 +1,7 @@
 package com.wyf.controller;
 
+import com.wyf.model.HostHolder;
 import com.wyf.model.News;
-import com.wyf.model.User;
 import com.wyf.model.ViewObject;
 import com.wyf.service.NewsService;
 import com.wyf.service.UserService;
@@ -11,9 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +25,9 @@ public class HomeController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    HostHolder hostHolder;
 
     //    @RequestMapping(path = {"/", "/index"}, method = {RequestMethod.GET, RequestMethod.POST})
 //    public String index(Model model) {

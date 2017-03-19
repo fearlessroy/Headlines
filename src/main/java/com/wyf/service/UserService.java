@@ -1,16 +1,16 @@
 package com.wyf.service;
 
+import com.wyf.dao.LoginTicketDAO;
 import com.wyf.dao.UserDAO;
+import com.wyf.model.LoginTicket;
 import com.wyf.model.User;
 import com.wyf.util.HeadlineUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.UUID;
+import java.text.DateFormat;
+import java.util.*;
 
 /**
  * Created by w7397 on 2017/3/18.
@@ -18,7 +18,10 @@ import java.util.UUID;
 @Service
 public class UserService {
     @Autowired
-    UserDAO userDAO;
+    private UserDAO userDAO;
+
+    @Autowired
+    private LoginTicketDAO loginTicketDAO;
 
     public Map<String, Object> register(String username, String password) {
         Map<String, Object> map = new HashMap<String, Object>();
@@ -45,10 +48,57 @@ public class UserService {
         //user.setPassword(password);
         userDAO.addUser(user);
 
+        //login
+        String ticket = addLoginTicket(user.getId());
+        map.put("ticket", ticket);
         return map;
+    }
+
+    public Map<String, Object> login(String username, String password) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (StringUtils.isBlank(username)) {
+            map.put("magname", "用户名不能为空");
+            return map;
+        }
+
+        if (StringUtils.isBlank(password)) {
+            map.put("magpwd", "密码不能为空");
+            return map;
+        }
+
+        User user = userDAO.selectByName(username);
+        if (user == null) {
+            map.put("magname", "用户名不存在");
+        }
+        if (!HeadlineUtil.MD5(password + user.getSalt()).equals(user.getPassword())) {
+            map.put("magpwd", "密码不正确");
+        }
+
+        //ticket
+        String ticket = addLoginTicket(user.getId());
+        map.put("ticket", ticket);
+
+
+        return map;
+    }
+
+    private String addLoginTicket(int userId) {
+        LoginTicket ticket = new LoginTicket();
+        ticket.setUserId(userId);
+        Date data = new Date();
+        data.setTime(data.getTime() + 1000 * 3600 * 24);
+        ticket.setExpired(data);
+        ticket.setStatus(0);
+        ticket.setTicket(UUID.randomUUID().toString().replaceAll("-", ""));
+        loginTicketDAO.addTicket(ticket);
+        return ticket.getTicket();
     }
 
     public User getUser(int id) {
         return userDAO.selectById(id);
+    }
+
+    public void logout(String ticket){
+        loginTicketDAO.updateStatus(ticket,1);
     }
 }
