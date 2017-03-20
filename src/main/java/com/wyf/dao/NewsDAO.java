@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 /**
- * Created by nowcoder on 2016/7/2.
+ * Created by w7397 on 2017/3/18.
  */
 @Mapper
 public interface NewsDAO {

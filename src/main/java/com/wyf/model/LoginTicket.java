@@ -3,7 +3,7 @@ package com.wyf.model;
 import java.util.Date;
 
 /**
- * Created by nowcoder on 2016/7/3.
+ * Created by w7397 on 2016/3/19.
  */
 public class LoginTicket {
     private int id;

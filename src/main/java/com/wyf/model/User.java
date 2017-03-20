@@ -1,7 +1,7 @@
 package com.wyf.model;
 
 /**
- * Created by nowcoder on 2016/6/26.
+ * Created by  on 2017/3/19.
  */
 public class User {
     private int id;
