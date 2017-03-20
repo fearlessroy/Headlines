@@ -42,6 +42,7 @@ public class NewsController {
 
     @Autowired
     CommentService commentService;
+
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
     @RequestMapping(path = {"/news/{newsId}"}, method = {RequestMethod.GET})
