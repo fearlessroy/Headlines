@@ -32,6 +32,10 @@ public class NewsService {
         return news.getId();
     }
 
+    public News getById(int newsId) {
+        return newsDAO.getById(newsId);
+    }
+
     public String saveImage(MultipartFile file) throws IOException {
         // xxx.jpeg
         int doPos = file.getOriginalFilename().lastIndexOf(".");
@@ -47,5 +51,9 @@ public class NewsService {
                 StandardCopyOption.REPLACE_EXISTING);
         //xxx.jpg
         return HeadlineUtil.HEADLINE_DOMAIN + "image?name=" + fileName;
+    }
+
+    public int updateCommentCount(int id, int count) {
+        return newsDAO.updateCommentCount(id, count);
     }
 }

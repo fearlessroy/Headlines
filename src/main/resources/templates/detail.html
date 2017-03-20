@@ -11,7 +11,7 @@
 
                 <div class="content" data-url="http://nowcoder.com/posts/5l3hjr">
                       <div class="content-img">
-                          <img src="$!{news.image}" alt="">
+                          <img src="$!{news.image}?imageView2/2/w/100/h/101/q/75|imageslim" alt="">
                       </div>
                       <div class="content-main">
                           <h3 class="title">
@@ -85,11 +85,11 @@
             <div id="comments" class="comments">
                 #foreach($commentvo in $comments)
                 <div class="media">
-                    <a class="media-left" href="http://nowcoder.com/u/210176">
+                    <a class="media-left" href="/user/$!{$commentvo.user.id}">
                         <img src="$!{commentvo.user.headUrl}">
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading"> <small class="date">$date.format('yyyy-MM-dd HH:mm:ss', $!{commentvo.comment.createdDate})</small></h4>
+                        <h4 class="media-heading"> <small class="date">$date.format('yyyy-MM-dd HH:mm:ss', $!{commentvo.comment.createDate})</small></h4>
                         <div>$!{commentvo.comment.content}</div>
                     </div>
                 </div>
