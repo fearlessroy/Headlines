@@ -2,10 +2,7 @@ package com.wyf.controller;
 
 import com.wyf.aspect.LogAspect;
 import com.wyf.model.*;
-import com.wyf.service.CommentService;
-import com.wyf.service.NewsService;
-import com.wyf.service.QiniuService;
-import com.wyf.service.UserService;
+import com.wyf.service.*;
 import com.wyf.util.HeadlineUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,12 +40,21 @@ public class NewsController {
     @Autowired
     CommentService commentService;
 
+    @Autowired
+    LikeService likeService;
+
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
     @RequestMapping(path = {"/news/{newsId}"}, method = {RequestMethod.GET})
     public String newsDetail(@PathVariable("newsId") int newsId, Model model) {
         News news = newsService.getById(newsId);
         if (news != null) {
+            int localUserId = hostHolder.getUser() != null ? hostHolder.getUser().getId() : 0;
+            if (localUserId != 0) {
+                model.addAttribute("like", likeService.getLikeStatus(localUserId, EntityType.ENTITY_NEWS, news.getId()));
+            } else {
+                model.addAttribute("like", 0);
+            }
             //评论
             List<Comment> comments = commentService.getCommentsByEntity(news.getId(), EntityType.ENTITY_NEWS);
             List<ViewObject> commentVOs = new ArrayList<ViewObject>();

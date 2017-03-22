@@ -1,6 +1,10 @@
 package com.wyf.util;
 
-import org.hibernate.validator.internal.constraintvalidators.bv.past.PastValidatorForReadableInstant;
+import com.wyf.aspect.LogAspect;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Service;
 import redis.clients.jedis.BinaryClient;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -9,7 +13,12 @@ import redis.clients.jedis.Tuple;
 /**
  * Created by w7397 on 2017/3/22.
  */
-public class JedisAdapter {
+@Service
+public class JedisAdapter implements InitializingBean {
+
+    private static final Logger logger = LoggerFactory.getLogger(JedisAdapter.class);
+    private JedisPool pool = null;
+
 
     public static void print(int index, Object obj) {
         System.out.println(String.format("%d,%s", index, obj.toString()));
@@ -104,12 +113,83 @@ public class JedisAdapter {
         print(38, jedis.zrank(rankKey, "ben"));
         print(39, jedis.zrevrank(rankKey, "ben"));
 
-        JedisPool pool=new JedisPool();
-        for (int i=0;i<100;++i){
-            Jedis j=pool.getResource(); //default 8
+        JedisPool pool = new JedisPool();
+        for (int i = 0; i < 100; ++i) {
+            Jedis j = pool.getResource(); //default 8
             j.get("a");
-            System.out.println("POOL"+i);
+            System.out.println("POOL" + i);
             j.close();
         }
     }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        pool = new JedisPool("localhost", 6379);
+    }
+
+    private Jedis getJedis() {
+        return pool.getResource();
+    }
+
+    public long sadd(String key, String value) {
+        Jedis jedis = null;
+        try {
+            jedis = pool.getResource();
+            return jedis.sadd(key, value);
+        } catch (Exception e) {
+            logger.error("发生异常" + e.getMessage());
+            return 0;
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+    public long srem(String key, String value) {
+        Jedis jedis = null;
+        try {
+            jedis = pool.getResource();
+            return jedis.srem(key, value);
+        } catch (Exception e) {
+            logger.error("发生异常" + e.getMessage());
+            return 0;
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+    public boolean sismember(String key, String value) {
+        Jedis jedis = null;
+        try {
+            jedis = pool.getResource();
+            return jedis.sismember(key, value);
+        } catch (Exception e) {
+            logger.error("发生异常" + e.getMessage());
+            return false;
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+    public long scard(String key) {
+        Jedis jedis = null;
+        try {
+            jedis = pool.getResource();
+            return jedis.scard(key);
+        } catch (Exception e) {
+            logger.error("发生异常" + e.getMessage());
+            return 0;
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+
 }
