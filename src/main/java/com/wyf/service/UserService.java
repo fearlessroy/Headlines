@@ -26,20 +26,20 @@ public class UserService {
     public Map<String, Object> register(String username, String password) {
         Map<String, Object> map = new HashMap<String, Object>();
         if (StringUtils.isBlank(username)) {
-            map.put("magname", "用户名不能为空");
+            map.put("msgname", "用户名不能为空");
             return map;
         }
 
         if (StringUtils.isBlank(password)) {
-            map.put("magpwd", "密码不能为空");
+            map.put("msgpwd", "密码不能为空");
             return map;
         }
 
         User user = userDAO.selectByName(username);
         if (user != null) {
-            map.put("magname", "用户名已经被注册");
+            map.put("msgname", "用户名已经被注册");
         }
-//密码强度
+        //密码强度
         user = new User();
         user.setName(username);
         user.setSalt(UUID.randomUUID().toString().substring(0, 5));
@@ -57,22 +57,24 @@ public class UserService {
     public Map<String, Object> login(String username, String password) {
         Map<String, Object> map = new HashMap<String, Object>();
         if (StringUtils.isBlank(username)) {
-            map.put("magname", "用户名不能为空");
+            map.put("msgname", "用户名不能为空");
             return map;
         }
 
         if (StringUtils.isBlank(password)) {
-            map.put("magpwd", "密码不能为空");
+            map.put("msgpwd", "密码不能为空");
             return map;
         }
 
         User user = userDAO.selectByName(username);
         if (user == null) {
-            map.put("magname", "用户名不存在");
+            map.put("msgname", "用户名不存在");
         }
         if (!HeadlineUtil.MD5(password + user.getSalt()).equals(user.getPassword())) {
-            map.put("magpwd", "密码不正确");
+            map.put("msgpwd", "密码不正确");
         }
+
+        map.put("userId", user.getId());
 
         //ticket
         String ticket = addLoginTicket(user.getId());
@@ -85,9 +87,9 @@ public class UserService {
     private String addLoginTicket(int userId) {
         LoginTicket ticket = new LoginTicket();
         ticket.setUserId(userId);
-        Date data = new Date();
-        data.setTime(data.getTime() + 1000 * 3600 * 24);
-        ticket.setExpired(data);
+        Date date = new Date();
+        date.setTime(date.getTime() + 1000 * 3600 * 24);
+        ticket.setExpired(date);
         ticket.setStatus(0);
         ticket.setTicket(UUID.randomUUID().toString().replaceAll("-", ""));
         loginTicketDAO.addTicket(ticket);

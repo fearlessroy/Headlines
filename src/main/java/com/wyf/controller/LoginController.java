@@ -1,6 +1,9 @@
 package com.wyf.controller;
 
 import com.wyf.aspect.LogAspect;
+import com.wyf.async.EventModel;
+import com.wyf.async.EventProducer;
+import com.wyf.async.EventType;
 import com.wyf.service.NewsService;
 import com.wyf.service.UserService;
 import com.wyf.util.HeadlineUtil;
@@ -29,6 +32,8 @@ public class LoginController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    EventProducer eventProducer;
 
     @RequestMapping(path = {"/reg/"}, method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
@@ -65,20 +70,24 @@ public class LoginController {
                         HttpServletResponse response) {
 
         try {
-            Map<String, Object> map = userService.register(username, password);
+            Map<String, Object> map = userService.login(username, password);
             if (map.containsKey("ticket")) {
                 Cookie cookie = new Cookie("ticket", map.get("ticket").toString());
                 cookie.setPath("/");
                 if (rember > 0) {
                     cookie.setMaxAge(3600 * 24 * 5);
                 }
-                return HeadlineUtil.getJSONString(0, "注册成功");
+                response.addCookie(cookie);
+                eventProducer.fireEvent(new
+                        EventModel(EventType.LOGIN).setActorId((int) map.get("userId"))
+                        .setExt("username", "wyf").setExt("email", "w739709403@126.com"));
+                return HeadlineUtil.getJSONString(0, "成功");
             } else {
                 return HeadlineUtil.getJSONString(1, map);
             }
         } catch (Exception e) {
-            logger.error("注册异常", e.getMessage());
-            return HeadlineUtil.getJSONString(1, "注册异常");
+            logger.error("登录异常", e.getMessage());
+            return HeadlineUtil.getJSONString(1, "登录异常");
         }
 
     }
