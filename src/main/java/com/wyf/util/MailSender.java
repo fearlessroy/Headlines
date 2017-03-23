@@ -51,7 +51,7 @@ public class MailSender implements InitializingBean {
 
         // 请输入自己的邮箱和密码，用于发送邮件
         mailSender.setUsername("739709403@qq.com");
-        mailSender.setPassword("xxxxxxxx"); //agtucavhdzrwbbib,qq邮件专属授权码
+        mailSender.setPassword("agtucavhdzrwbbib"); //agtucavhdzrwbbib,qq邮件专属授权码
         mailSender.setHost("smtp.qq.com");
         // 请配置自己的邮箱和密码
 
