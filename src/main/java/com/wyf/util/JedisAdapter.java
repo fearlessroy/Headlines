@@ -1,15 +1,14 @@
 package com.wyf.util;
 
 import com.alibaba.fastjson.JSON;
-//import com.wyf.async.EventModel;
-//import com.wyf.async.EventType;
-import com.wyf.controller.IndexController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import redis.clients.jedis.*;
+import redis.clients.jedis.BinaryClient;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.Tuple;
 
 import java.util.List;
 
@@ -156,7 +155,6 @@ public class JedisAdapter implements InitializingBean {
         }
     }
 
-    private Jedis jedis = null;
     private JedisPool pool = null;
 
     @Override

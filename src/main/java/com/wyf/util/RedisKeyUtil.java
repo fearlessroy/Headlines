@@ -4,7 +4,7 @@ package com.wyf.util;
  * Created by w7397 on 2017/3/22.
  */
 public class RedisKeyUtil {
-    private static String SPILT = ":";
+    private static String SPLIT = ":";
     private static String BIZ_LIKE = "LIKE";
     private static String BIZ_DISLIKE = "DISLIKE";
     private static String BIZ_EVENT = "EVENT";
@@ -14,10 +14,10 @@ public class RedisKeyUtil {
     }
 
     public static String getLikeKey(int entityId, int entityType) {
-        return BIZ_LIKE + SPILT + String.valueOf(entityType) + SPILT + String.valueOf(entityId);
+        return BIZ_LIKE + SPLIT + String.valueOf(entityType) + SPLIT + String.valueOf(entityId);
     }
 
     public static String getDisLikeKey(int entityId, int entityType) {
-        return BIZ_DISLIKE + SPILT + String.valueOf(entityType) + SPILT + String.valueOf(entityId);
+        return BIZ_DISLIKE + SPLIT + String.valueOf(entityType) + SPLIT + String.valueOf(entityId);
     }
 }

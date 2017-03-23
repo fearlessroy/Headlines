@@ -34,8 +34,8 @@ public class Comment {
         this.content = content;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createdDate = createDate;
+    public void setCreateDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     public void setStatus(int status) {
