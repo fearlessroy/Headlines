@@ -12,7 +12,7 @@ import java.util.Map;
  * Created by w7397 on 2017/3/18.
  */
 public class HeadlineUtil {
-    private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
+    private static final Logger logger = LoggerFactory.getLogger(HeadlineUtil.class);
     public static String HEADLINE_DOMAIN = "http://127.0.0.1:8080/";
     public static String IMAGE_DIR = "F:/Projects/Engineering/headline/upload/";
     public static String[] IMAGE_FILE_EXT = new String[]{"png", "bmp", "jpg", "jpeg"};

@@ -36,21 +36,6 @@ public class HomeController {
     @Autowired
     LikeService likeService;
 
-    //    @RequestMapping(path = {"/", "/index"}, method = {RequestMethod.GET, RequestMethod.POST})
-//    public String index(Model model) {
-//        List<News> newsList = newsService.getLastedNews(0, 0, 10);
-//
-//        List<ViewObject> vos = new ArrayList<>();
-//        for (News news : newsList) {
-//            ViewObject vo=new ViewObject();
-//            vo.set("news",news);
-//            vo.set("user",userService.getUser(news.getUserId()));
-//            vos.add(vo);
-//        }
-//
-//        model.addAttribute("vos", vos);
-//        return "home";
-//    }
     private List<ViewObject> getNews(int userId, int offset, int limit) {
         List<News> newsList = newsService.getLatestNews(userId, offset, limit);
         int localUserId = hostHolder.getUser() != null ? hostHolder.getUser().getId() : 0;
