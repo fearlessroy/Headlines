@@ -87,7 +87,7 @@ public class LoginController {
                 eventProducer.fireEvent(new
                         EventModel(EventType.LOGIN).setActorId((int) map.get("userId"))
                         .setExt("username", "wyf").setExt("email", "w739709403@126.com"));
-                        */
+                   */
                 return HeadlineUtil.getJSONString(0, "成功");
             } else {
                 return HeadlineUtil.getJSONString(1, map);

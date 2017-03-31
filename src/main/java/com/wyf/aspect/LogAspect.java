@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
  */
 @Aspect
 public class LogAspect {
-    private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+    private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
 
     @Before("execution(*com.wyf.controller.*Controller.*(..))")

@@ -48,20 +48,15 @@ public class MailSender implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         mailSender = new JavaMailSenderImpl();
-
         // 请输入自己的邮箱和密码，用于发送邮件
         mailSender.setUsername("739709403@qq.com");
         mailSender.setPassword("xxxxxxxxx"); //qq邮件专属授权码
         mailSender.setHost("smtp.qq.com");
-        // 请配置自己的邮箱和密码
-
         mailSender.setPort(465);
         mailSender.setProtocol("smtps");
         mailSender.setDefaultEncoding("utf8");
         Properties javaMailProperties = new Properties();
         javaMailProperties.put("mail.smtp.ssl.enable", true);
         mailSender.setJavaMailProperties(javaMailProperties);
-        //agtucavhdzrwbbib
-
     }
 }
