@@ -50,7 +50,7 @@ public class InitDatabaseTests {
             Date date = new Date();
             date.setTime(date.getTime() + 1000 * 3600 * 5 * i);
             news.setCreatedDate(date);
-            news.setImage(String.format("http://images.nowcoder.com/head/%dm.png", random.nextInt(1000)));
+            news.setImage(String.format("http://images.nowcoder.com/head/%dm.png", random.nextInt(999)));
             news.setLikeCount(i + 1);
             news.setUserId(i + 1);
             news.setTitle(String.format("TITLE{%d}", i));

@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +58,12 @@ public class HomeController {
     public String index(Model model) {
         model.addAttribute("vos", getNews(0, 0, 10));
         return "home";
+    }
+
+    @RequestMapping(path = {"/about"}, method = {RequestMethod.GET})
+    @ResponseBody
+    public String about(Model model) {
+        return "我是山东大学(威海)17届软件工程毕业生 王云飞";
     }
 
     @RequestMapping(path = {"/user/{userId}/"}, method = {RequestMethod.GET, RequestMethod.POST})
