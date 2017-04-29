@@ -30,7 +30,7 @@ public class LoginExceptionHandler implements EventHandler {
         //判断是否有异常登录
         Message message = new Message();
         message.setToId(model.getActorId());
-        message.setContent("上次登录ip异常");
+        message.setContent("login ip exception");
         message.setFromId(3);
         message.setCreatedDate(new Date());
         messageService.addMessage(message);
