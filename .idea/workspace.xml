@@ -4,64 +4,7 @@
     <option name="GROUP_BY_SEVERITY" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57de6ffa-a11d-4df6-9d0c-1141d2e8e281" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/HeadlineApplication.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/aspect/LogAspect.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/async/EventConsumer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/async/EventHandler.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/async/EventModel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/async/EventProducer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/async/EventType.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/async/handler/LikeHandler.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/async/handler/LoginExceptionHandler.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/async/handler/RegisterHander.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/configuration/HeadlineWebConfiguration.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/controller/HomeController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/controller/IndexController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/controller/LikeController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/controller/LoginController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/controller/MessageController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/controller/NewsController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/controller/SettingController.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/dao/CommentDAO.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/dao/LoginTicketDAO.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/dao/MessageDAO.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/dao/NewsDAO.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/dao/UserDAO.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/interceptor/LoginRequiredInterceptor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/interceptor/PassportInterceptor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/model/Comment.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/model/EntityType.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/model/HostHolder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/model/LoginTicket.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/model/Message.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/model/News.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/model/User.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/model/ViewObject.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/service/CommentService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/service/HeadlineService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/service/LikeService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/service/MessageService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/service/NewsService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/service/QiniuService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/service/UserService.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/util/HeadlineUtil.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/util/JedisAdapter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/util/MailSender.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyf/util/RedisKeyUtil.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/wyf/dao/NewsDAO.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/toolbox.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/wyf/HeadlineApplicationTests.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/wyf/InitDatabaseTests.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/wyf/JedisTests.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/wyf/LikeServiceTests.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/wyf/MutilThread.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/init-schema.sql" afterPath="" />
-    </list>
+    <list default="true" id="57de6ffa-a11d-4df6-9d0c-1141d2e8e281" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -548,12 +491,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1524205589952</updated>
-      <workItem from="1524205593413" duration="503000" />
+      <workItem from="1524205593413" duration="557000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="503000" />
+    <option name="totallyTimeSpent" value="557000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
