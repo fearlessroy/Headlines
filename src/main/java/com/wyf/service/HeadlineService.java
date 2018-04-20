@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class HeadlineService {
-    public String say(){
-        return "This is from HeadlineService.";
-    }
+
+	public String say() {
+		return "This is from HeadlineService.";
+	}
 }
