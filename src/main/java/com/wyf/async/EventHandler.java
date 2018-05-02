@@ -6,7 +6,8 @@ import java.util.List;
  * Created by w7397 on 2017/3/23.
  */
 public interface EventHandler {
-    void doHandle(EventModel model);
 
-    List<EventType> getSupportEventTypes();
+	void doHandle(EventModel model);
+
+	List<EventType> getSupportEventTypes();
 }

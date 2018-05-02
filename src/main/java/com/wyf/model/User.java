@@ -4,59 +4,61 @@ package com.wyf.model;
  * Created by  on 2017/3/19.
  */
 public class User {
-    private int id;
-    private String name;
-    private String password;
-    private String salt;
-    private String headUrl;
 
-    public User() {
+	private int id;
+	private String name;
+	private String password;
+	private String salt;
+	private String headUrl;
 
-    }
-    public User(String name) {
-        this.name = name;
-        this.password = "";
-        this.salt = "";
-        this.headUrl = "";
-    }
+	public User() {
 
-    public String getName() {
-        return name;
-    }
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public User(String name) {
+		this.name = name;
+		this.password = "";
+		this.salt = "";
+		this.headUrl = "";
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getSalt() {
-        return salt;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getHeadUrl() {
-        return headUrl;
-    }
+	public String getSalt() {
+		return salt;
+	}
 
-    public void setHeadUrl(String headUrl) {
-        this.headUrl = headUrl;
-    }
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public String getHeadUrl() {
+		return headUrl;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setHeadUrl(String headUrl) {
+		this.headUrl = headUrl;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }

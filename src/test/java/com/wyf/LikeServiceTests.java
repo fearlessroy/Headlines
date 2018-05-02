@@ -11,12 +11,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * Created by w7397 on 2017/3/24.
- */
-/*
-初始化数据
-执行要测试的业务
-验证测试的数据
-清理数据
+ * 初始化数据
+ * 执行要测试的业务
+ * 验证测试的数据
+ * 清理数据
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = HeadlineApplication.class)

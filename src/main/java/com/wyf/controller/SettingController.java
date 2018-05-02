@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class SettingController {
-    @RequestMapping("/setting")
-    @ResponseBody
-    public String setting() {
-        return "Setting OK";
-    }
+
+	@RequestMapping("/setting")
+	@ResponseBody
+	public String setting() {
+		return "Setting OK";
+	}
 }

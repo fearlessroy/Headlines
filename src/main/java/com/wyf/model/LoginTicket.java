@@ -6,49 +6,50 @@ import java.util.Date;
  * Created by w7397 on 2016/3/19.
  */
 public class LoginTicket {
-    private int id;
-    private int userId;
-    private Date expired;
-    private int status; // 0有效，1无效
-    private String ticket;
 
-    public String getTicket() {
-        return ticket;
-    }
+	private int id;
+	private int userId;
+	private Date expired;
+	private int status; // 0有效，1无效
+	private String ticket;
 
-    public void setTicket(String ticket) {
-        this.ticket = ticket;
-    }
+	public String getTicket() {
+		return ticket;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public void setTicket(String ticket) {
+		this.ticket = ticket;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public int getUserId() {
-        return userId;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+	public int getUserId() {
+		return userId;
+	}
 
-    public Date getExpired() {
-        return expired;
-    }
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
-    public void setExpired(Date expired) {
-        this.expired = expired;
-    }
+	public Date getExpired() {
+		return expired;
+	}
 
-    public int getStatus() {
-        return status;
-    }
+	public void setExpired(Date expired) {
+		this.expired = expired;
+	}
 
-    public void setStatus(int status) {
-        this.status = status;
-    }
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
 }

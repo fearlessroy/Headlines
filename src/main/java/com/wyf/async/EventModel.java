@@ -1,6 +1,5 @@
 package com.wyf.async;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,74 +7,77 @@ import java.util.Map;
  * Created by w7397 on 2017/3/23.
  */
 public class EventModel {
-    private EventType type;
-    private int actorId;
-    private int entityId;
-    private int entityType;
-    private int entityOwnerId;
-    private Map<String, String> exts = new HashMap<>();
 
-    public Map<String, String> getExts() {
-        return exts;
-    }
-    public EventModel() {
+	private EventType type;
+	private int actorId;
+	private int entityId;
+	private int entityType;
+	private int entityOwnerId;
+	private Map<String, String> exts = new HashMap<>();
 
-    }
-    public EventModel(EventType type) {
-        this.type = type;
-    }
+	public Map<String, String> getExts() {
+		return exts;
+	}
 
-    public String getExt(String name) {
-        return exts.get(name);
-    }
+	public EventModel() {
 
-    public EventModel setExt(String name, String value) {
-        exts.put(name, value);
-        return this;
-    }
+	}
 
-    public EventType getType() {
-        return type;
-    }
+	public EventModel(EventType type) {
+		this.type = type;
+	}
 
-    public EventModel setType(EventType type) {
-        this.type = type;
-        return this;
-    }
+	public String getExt(String name) {
+		return exts.get(name);
+	}
 
-    public int getActorId() {
-        return actorId;
-    }
+	public EventModel setExt(String name, String value) {
+		exts.put(name, value);
+		return this;
+	}
 
-    public EventModel setActorId(int actorId) {
-        this.actorId = actorId;
-        return this;
-    }
+	public EventType getType() {
+		return type;
+	}
 
-    public int getEntityId() {
-        return entityId;
-    }
+	public EventModel setType(EventType type) {
+		this.type = type;
+		return this;
+	}
 
-    public EventModel setEntityId(int entityId) {
-        this.entityId = entityId;
-        return this;
-    }
+	public int getActorId() {
+		return actorId;
+	}
 
-    public int getEntityType() {
-        return entityType;
-    }
+	public EventModel setActorId(int actorId) {
+		this.actorId = actorId;
+		return this;
+	}
 
-    public EventModel setEntityType(int entityType) {
-        this.entityType = entityType;
-        return this;
-    }
+	public int getEntityId() {
+		return entityId;
+	}
 
-    public int getEntityOwnerId() {
-        return entityOwnerId;
-    }
+	public EventModel setEntityId(int entityId) {
+		this.entityId = entityId;
+		return this;
+	}
 
-    public EventModel setEntityOwnerId(int entityOwnerId) {
-        this.entityOwnerId = entityOwnerId;
-        return this;
-    }
+	public int getEntityType() {
+		return entityType;
+	}
+
+	public EventModel setEntityType(int entityType) {
+		this.entityType = entityType;
+		return this;
+	}
+
+	public int getEntityOwnerId() {
+		return entityOwnerId;
+	}
+
+	public EventModel setEntityOwnerId(int entityOwnerId) {
+		this.entityOwnerId = entityOwnerId;
+		return this;
+	}
 }

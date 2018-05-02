@@ -6,67 +6,68 @@ import java.util.Date;
  * Created by w7397 on 2017/3/20.
  */
 public class Comment {
-    private int id;
-    private int userId;
-    private int entityId;
-    private int entityType;
-    private String content;
-    private Date createdDate;
-    private int status;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	private int id;
+	private int userId;
+	private int entityId;
+	private int entityType;
+	private String content;
+	private Date createdDate;
+	private int status;
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setEntityId(int entityId) {
-        this.entityId = entityId;
-    }
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
-    public void setEntityType(int entityType) {
-        this.entityType = entityType;
-    }
+	public void setEntityId(int entityId) {
+		this.entityId = entityId;
+	}
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+	public void setEntityType(int entityType) {
+		this.entityType = entityType;
+	}
 
-    public void setCreateDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
+	public void setContent(String content) {
+		this.content = content;
+	}
 
-    public void setStatus(int status) {
-        this.status = status;
-    }
+	public void setCreateDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public void setStatus(int status) {
+		this.status = status;
+	}
 
-    public int getUserId() {
-        return userId;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public int getEntityId() {
-        return entityId;
-    }
+	public int getUserId() {
+		return userId;
+	}
 
-    public int getEntityType() {
-        return entityType;
-    }
+	public int getEntityId() {
+		return entityId;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public int getEntityType() {
+		return entityType;
+	}
 
-    public Date getCreateDate() {
-        return createdDate;
-    }
+	public String getContent() {
+		return content;
+	}
 
-    public int getStatus() {
-        return status;
-    }
+	public Date getCreateDate() {
+		return createdDate;
+	}
+
+	public int getStatus() {
+		return status;
+	}
 }

@@ -22,39 +22,37 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LikeController {
 
-    @Autowired
-    HostHolder hostHolder;
+	@Autowired
+	HostHolder hostHolder;
 
-    @Autowired
-    LikeService likeService;
+	@Autowired
+	LikeService likeService;
 
-    @Autowired
-    NewsService newsService;
+	@Autowired
+	NewsService newsService;
 
-    @Autowired
-    EventProducer eventProducer;
+	@Autowired
+	EventProducer eventProducer;
 
-    @RequestMapping(path = {"/like"}, method = {RequestMethod.GET,RequestMethod.POST})
-    @ResponseBody
-    public String like(@Param("newsId") int newsId) {
-        long likeCount = likeService.like(hostHolder.getUser().getId(), EntityType.ENTITY_NEWS, newsId);
-        // 更新喜欢数
-        News news = newsService.getById(newsId);
-        newsService.updateLikeCount(newsId, (int)likeCount);
-        eventProducer.fireEvent(new EventModel(EventType.LIKE)
-                .setEntityOwnerId(news.getUserId())
-                .setActorId(hostHolder.getUser().getId()).setEntityId(newsId));
-        return HeadlineUtil.getJSONString(0, String.valueOf(likeCount));
-    }
+	@RequestMapping(path = {"/like"}, method = {RequestMethod.GET, RequestMethod.POST})
+	@ResponseBody
+	public String like(@Param("newsId") int newsId) {
+		long likeCount = likeService.like(hostHolder.getUser().getId(), EntityType.ENTITY_NEWS, newsId);
+		// 更新喜欢数
+		News news = newsService.getById(newsId);
+		newsService.updateLikeCount(newsId, (int) likeCount);
+		eventProducer.fireEvent(new EventModel(EventType.LIKE).setEntityOwnerId(news.getUserId()).setActorId(hostHolder.getUser().getId()).setEntityId(newsId));
+		return HeadlineUtil.getJSONString(0, String.valueOf(likeCount));
+	}
 
-    @RequestMapping(path = {"/dislike"}, method = {RequestMethod.GET,RequestMethod.POST})
-    @ResponseBody
-    public String dislike(@Param("newId") int newsId) {
-        long likeCount = likeService.disLike(hostHolder.getUser().getId(), EntityType.ENTITY_NEWS, newsId);
-        // 更新喜欢数
-        newsService.updateLikeCount(newsId, (int)likeCount);
-        return HeadlineUtil.getJSONString(0, String.valueOf(likeCount));
-    }
+	@RequestMapping(path = {"/dislike"}, method = {RequestMethod.GET, RequestMethod.POST})
+	@ResponseBody
+	public String dislike(@Param("newId") int newsId) {
+		long likeCount = likeService.disLike(hostHolder.getUser().getId(), EntityType.ENTITY_NEWS, newsId);
+		// 更新喜欢数
+		newsService.updateLikeCount(newsId, (int) likeCount);
+		return HeadlineUtil.getJSONString(0, String.valueOf(likeCount));
+	}
 
 
 }

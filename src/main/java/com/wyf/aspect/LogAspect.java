@@ -1,6 +1,5 @@
 package com.wyf.aspect;
 
-import com.wyf.controller.IndexController;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
@@ -14,20 +13,21 @@ import org.slf4j.LoggerFactory;
  */
 @Aspect
 public class LogAspect {
-    private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
 
-    @Before("execution(*com.wyf.controller.*Controller.*(..))")
-    public void beforeMethod(JoinPoint joinPoint) {
-        StringBuilder sb = new StringBuilder();
-        for (Object arg : joinPoint.getArgs()) {
-            sb.append("arg:" + arg.toString() + "|");
-        }
-        logger.info("before method:" + sb.toString());
-    }
+	@Before("execution(*com.wyf.controller.*Controller.*(..))")
+	public void beforeMethod(JoinPoint joinPoint) {
+		StringBuilder sb = new StringBuilder();
+		for (Object arg : joinPoint.getArgs()) {
+			sb.append("arg:" + arg.toString() + "|");
+		}
+		logger.info("before method:" + sb.toString());
+	}
 
-    @After("execution(*com.wyf.controller.*Controller.*(..))")
-    public void afterMethod(JoinPoint joinPoint) {
-        logger.info("after method:");
-    }
+	@After("execution(*com.wyf.controller.*Controller.*(..))")
+	public void afterMethod(JoinPoint joinPoint) {
+		logger.info("after method:");
+	}
 }

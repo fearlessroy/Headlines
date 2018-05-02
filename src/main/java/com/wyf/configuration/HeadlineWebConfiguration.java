@@ -12,16 +12,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @Component
 public class HeadlineWebConfiguration extends WebMvcConfigurerAdapter {
-    @Autowired
-    PassportInterceptor passportInterceptor;
 
-    @Autowired
-    LoginRequiredInterceptor loginRequiredInterceptor;
+	@Autowired
+	PassportInterceptor passportInterceptor;
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(passportInterceptor);
-        registry.addInterceptor(loginRequiredInterceptor).addPathPatterns("/setting*");
-        super.addInterceptors(registry);
-    }
+	@Autowired
+	LoginRequiredInterceptor loginRequiredInterceptor;
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(passportInterceptor);
+		registry.addInterceptor(loginRequiredInterceptor).addPathPatterns("/setting*");
+		super.addInterceptors(registry);
+	}
 }
