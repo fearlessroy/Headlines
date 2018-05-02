@@ -8,7 +8,7 @@ bin/
 *.ipr
 *.iml
 *.iws
-.idea
+.idea/
 .DS_Store
 .idea
 overlays/
