@@ -66,7 +66,7 @@ public class HomeController {
 	@RequestMapping(path = {"/about"}, method = {RequestMethod.GET})
 	@ResponseBody
 	public String about(Model model) {
-		return "我是山东大学17届软件工程毕业生 王云飞";
+		return "我是一名工程师";
 	}
 
 	@RequestMapping(path = {"/user/{userId}/"}, method = {RequestMethod.GET, RequestMethod.POST})

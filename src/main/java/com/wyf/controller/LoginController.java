@@ -51,11 +51,9 @@ public class LoginController {
 					cookie.setMaxAge(3600 * 24 * 5);
 				}
 				response.addCookie(cookie);
-                /*
-                eventProducer.fireEvent(new
-                        EventModel(EventType.REGISTER).setActorId((int) map.get("userId"))
-                        .setExt("username", "wyf").setExt("email", "w739709403@126.com"));
-                */
+
+				//eventProducer.fireEvent(new EventModel(EventType.REGISTER).setActorId((int) map.get("userId")).setExt("username", "wyf").setExt("email", "w739709403@126.com"));
+
 				return HeadlineUtil.getJSONString(0, "注册成功");
 			} else {
 				return HeadlineUtil.getJSONString(1, map);
